@@ -2,11 +2,12 @@
   <div class="page">
     用户
     <div class="button-num">
-      <el-button type="primary" class="button" @click="change">更改</el-button>
+      <el-button type="primary" class="button" @click="change('zhangsan')">张三</el-button>
+      <el-button type="primary" class="button" @click="change('lisi')">李四</el-button>
       <div>{{ number }}</div>
     </div>
     <!-- <user-content v-bind.sync="userData" :number.sync="number" /> -->
-    <user-content :userData.sync="userData" :number.sync="number" />
+    <user-content :userData.sync="userData" :clickId="clickId" :number.sync="number" />
   </div>
 </template>
 
@@ -20,13 +21,21 @@ export default {
   },
   data() {
     return {
-      userData: {
+      userData: [{
         name: '张三',
+        id: 'zhangsan',
         delivery: true,
         resource: '线下场地免费',
         desc: '不做说明'
-      },
-      number: 2
+      }, {
+        name: '李四',
+        id: 'lisi',
+        delivery: 'false',
+        resource: '线下场地免费',
+        desc: '无'
+      }],
+      number: 2,
+      clickId: ''
     };
   },
 
@@ -35,9 +44,10 @@ export default {
   },
 
   methods: {
-    change() {
+    change(id) {
       setTimeout(() => {
         this.number++
+        this.clickId = id
       }, 100);
     }
   },

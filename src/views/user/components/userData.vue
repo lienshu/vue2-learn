@@ -32,8 +32,9 @@ export default {
   name: 'USER',
 
   props: {
+    clickId: String,
     number: Number,
-    userData: Object,
+    userData: Array,
     // name: String,
     // resource: String,
     // desc: String,
@@ -68,6 +69,15 @@ export default {
         this.form = { ...this.form, ...newVal }
       },
       deep: true
+    },
+    clickId: {
+      handler(newVal, oldVal) {
+        console.log(newVal)
+        this.userData.forEach(item => {
+          this.form = item.id === newVal ? { ...item } : { ...this.form }
+        })
+      },
+      deep: true
     }
     // name: {
     //   handler(newVal, oldVal) {
@@ -87,13 +97,23 @@ export default {
   computed: {
     doubleNumber: function () {
       console.log('computed')
-      return this.userData.name + String(this.number)
-    }
+      return this.userData[0].name + String(this.number)
+    },
+    // form() {
+    //   return { ...this.form, id: '', name: '', delivery: false, resource: '', desc: '' }
+    // }
   },
-
+  beforeCreate() {
+    // 为什么获取不到this.userData
+    // console.log(this.userData)
+  },
+  created() {
+    // 为什么获取不到this.userData
+    // console.log(this.userData)
+  },
   mounted() {
-    this.form = { ...this.form, ...this.userData, }
-    // console.log(this.form)
+    this.form = { ...this.form, ...this.userData[0], }
+    console.log(this.userData)
     // console.log(this.name)
     // this.form = { ...this.form, name: this.name, delivery: this.delivery, resource: this.resource, desc: this.desc }
   },
@@ -112,17 +132,18 @@ export default {
     resetForm(formName) {
       this.$refs[formName].resetFields();
     },
-    change() {
+    change(e) {
+      console.log(e.target.value)
       this.$emit('update:number', 5)
       console.log('change')
       // this.$emit('update:name', '李四')
       // this.$emit('update:delivery', false)
       let newData = { name: "李四", delivery: true, resource: '线下场地免费', desc: '不做说明' }
-      this.$emit('update:userData', newData)
+      this.$emit('update:userData[0]', newData)
     },
     doubleNumberFn() {
       console.log('methods')
-      return this.userData.name + String(this.number)
+      return this.userData[0].name + String(this.number)
     }
   },
 };
