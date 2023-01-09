@@ -26,10 +26,38 @@
       <div v-for="item in data" :key="item.id">
         {{ item.type }}
         <div v-for="food in item.food" :key="food.id">
-          <div :value="food.name" @input="changeName($event, food.id)">{{ food.name }}</div>
+          <input :value="food.name" @input="changeName($event, food.id)" />
         </div>
       </div>
     </div>
+    <!-- <el-switch v-model="value" active-color="#13ce66" inactive-color="#ff4949">
+    </el-switch> -->
+    <el-switch :value="value" @input="changeSwitch($event)" active-color="#13ce66" inactive-color="#ff4949">
+    </el-switch>
+    <!-- <input type="text" class="form-control" placeholder="请输入品牌名称" v-model="sth"> -->
+    <input type="text" v-model="text" @input="changeValue(text)">
+    <input type="text" :value="text" @input="changeValue(text)">
+    <input type="text" :value="testData" @input="testFn($event)">
+    <button @click="click">button</button>
+    <br>
+    <br>
+    <br>
+    <div @click="eventFn" class="event">
+      <div @click.prevent="eventSonFn" :style="{ border: '5px solid blue' }">div标签1
+        <div @click="eventGranFn" :style="{ border: '5px solid #fff' }">div标签2</div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <input :value="domValue[0].name" @input="clickFn($event)">
+    <button v-on:click="warn('Form cannot be submitted yet.', $event)">
+      Submit
+    </button>
+    <form>
+      <label for="id-checkbox">Checkbox:</label>
+      <input type="checkbox" id="id-checkbox" />
+    </form>
+    <!-- <el-input v-model="input" placeholder="请输入内容"></el-input> -->
   </div>
 </template>
 
@@ -38,11 +66,60 @@ export default {
   name: 'HelloWorld',
   props: {
     // msg: String
-    data: Array
+    data: Array,
+    testData: String
   },
-  mathods: {
+  data() {
+    return {
+      text: '测试',
+      value: true,
+      input: '',
+      domValue: [{ name: 'zhangsan' }, { name: 'lisi' }]
+    }
+  },
+  methods: {
     changeName(food, id) {
       console.log(food, id)
+    },
+    testFn(text) {
+      this.$emit('update:testData', text.target.value)
+      console.log(this.testData)
+    },
+    click() {
+      this.$emit('update:testData', '日料')
+    },
+    changeValue(value) {
+      console.log(value)
+    },
+    changeSwitch(value) {
+      console.log(value)
+      this.value = value
+    },
+    changeInput(value) {
+      console.log(value)
+      this.input = value
+    },
+    clickFn(e) {
+      console.log(e.target.value)
+    },
+    warn: function (message, event) {
+      // 现在我们可以访问原生事件对象
+      if (event) {
+        event.preventDefault()
+        console.log(event)
+      }
+      alert(message)
+    },
+    eventFn(e) {
+      console.log(e.target, 'fa')
+      console.log(e.currentTarget, 'this')
+    },
+    eventSonFn(e) {
+      console.log(e.target, 'son')
+      // console.log(e.currentTarget, 'this')
+    },
+    eventGranFn(e) {
+      console.log(e.target, 'grand')
     }
   },
 }
@@ -86,5 +163,11 @@ export default {
   height: 500px;
   order: 1;
   align-self: flex-start;
+}
+
+.event {
+  height: 200px;
+  width: 200px;
+  background: salmon;
 }
 </style>
