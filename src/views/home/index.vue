@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>{{ title }}</h3>
-    <home-page :data="data" />
+    <home-page :data.sync="data" :testData.sync='testData' />
   </div>
 </template>
 
@@ -46,7 +46,8 @@ export default {
         },
 
 
-      ]
+      ],
+      testData: '测试'
     };
   },
 

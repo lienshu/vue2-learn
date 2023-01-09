@@ -65,13 +65,13 @@ export default {
   },
   watch: {
     userData: {
-      handler(newVal, oldVal) {
+      handler(newVal) {
         this.form = { ...this.form, ...newVal }
       },
       deep: true
     },
     clickId: {
-      handler(newVal, oldVal) {
+      handler(newVal) {
         console.log(newVal)
         this.userData.forEach(item => {
           this.form = item.id === newVal ? { ...item } : { ...this.form }
