@@ -1,8 +1,12 @@
 <template>
   <div id="app">
-    <router-link to="/home">Home</router-link>
-    <router-link to="/user">User</router-link>
-    <router-link to="/other">Other</router-link>
+    <router-link to="/syncemit">syncemit</router-link>
+    <br>
+    <router-link to="/ref-v-bindsync">ref-v-bindsync</router-link>
+    <br>
+    <router-link to="/iscomponent">iscomponent</router-link>
+    <br>
+    <router-link to="/moveslot">moveslot</router-link>
     <router-view />
   </div>
 </template>
