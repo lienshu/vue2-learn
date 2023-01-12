@@ -6,32 +6,51 @@
     </div>
     <button @click="changeArr">改变原对象</button>
     <button @click="changeObj">改变原数组</button>
-    <div v-for="item in array" :key="item.name">
+    <!-- <div v-for="item in array" :key="item.name">
       <br> <br>
       <div :style="{ border: '2px solid pink' }">name:{{ item.name }}</div>
       <br> <br>
       <div :style="{ border: '2px solid blue' }">age:{{ item.age }}</div>
       <br> <br>
       <div :style="{ border: '2px solid yellow' }">gender:{{ item.gender }}</div>
-    </div>
+    </div> -->
     <div @click="updateMessage">{{ message }}</div>
-    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+    <!-- <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
     <label for="jack">Jack</label>
     <input type="checkbox" id="john" value="John" v-model="checkedNames">
     <label for="john">John</label>
     <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
-    <label for="mike">Mike</label>
+    <label for="mike">Mike</label> -->
     <br>
     <span>Checked names: {{ checkedNames }}</span>
+    <br>
+    <!-- <input type="radio" v-model="pick" v-bind:value="a">
+    <br>
+    <input type="checkbox" v-model="toggle" true-value="yes" false-value="no"> -->
+    <button v-for="(item, index) in tags" :key="index" @click="currentTab(item.name)">{{ item.name }}</button>
+    <component :is="componentTag">
+      <slot />
+    </component>
   </div>
 </template>
 
 <script>
+import One from './components/one.vue'
+import Two from './components/two.vue'
+import Three from './components/three.vue'
+
 export default {
   name: 'OTHER',
-
+  components: {
+    One, Two, Three
+  },
   data() {
     return {
+      componentTag: "One",
+      tags: [{ name: 'One' }, { name: 'Two' }, { name: 'Three' }],
+      a: false,
+      pick: '',
+      toggle: '',
       checkedNames: [],
       message: '未更新',
       object: {
@@ -90,6 +109,9 @@ export default {
       })
       this.array[0].name = 'wumingshi'
       console.log(this.array)
+    },
+    currentTab(val) {
+      this.componentTag = val
     },
   },
 };

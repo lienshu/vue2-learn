@@ -5,22 +5,27 @@ Vue.use(VueRouter)
 
 const routes = [{
     path: '/',
-    component: () => import('@/views/home'),
+    component: () => import('@/views/syncemit'),
     // redirect: '/home',
   }, {
-    path: '/home',
-    component: () => import('@/views/home'),
-    name: '首页'
+    path: '/syncemit',
+    component: () => import('@/views/syncemit'),
+    name: 'syncemit'
   },
   {
-    path: '/user',
-    component: () => import('@/views/user'),
-    name: '我的'
+    path: '/ref-v-bindsync',
+    component: () => import('@/views/ref-v-bindsync'),
+    name: 'ref-v-bindsync'
   },
   {
-    path: '/other',
-    component: () => import('@/views/other'),
-    name: '其他'
+    path: '/iscomponent',
+    component: () => import('@/views/iscomponent'),
+    name: 'iscomponent'
+  },
+  {
+    path: '/moveslot',
+    component: () => import('@/views/moveslot'),
+    name: 'moveslot'
   },
 ]
 

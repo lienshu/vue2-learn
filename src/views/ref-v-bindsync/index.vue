@@ -7,7 +7,9 @@
       <div>{{ number }}</div>
     </div>
     <!-- <user-content v-bind.sync="userData" :number.sync="number" /> -->
-    <user-content :userData.sync="userData" :clickId="clickId" :number.sync="number" />
+    <user-content :userData.sync="userData" :clickId="clickId" :number.sync="number">
+      <slot></slot>
+    </user-content>
   </div>
 </template>
 
