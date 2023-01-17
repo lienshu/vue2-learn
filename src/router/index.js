@@ -27,6 +27,11 @@ const routes = [{
     component: () => import('@/views/moveslot'),
     name: 'moveslot'
   },
+  {
+    path: '/ref',
+    component: () => import('@/views/ref'),
+    name: 'ref'
+  },
 ]
 
 
