@@ -25,13 +25,14 @@
         <h1>Here might be a page title</h1>
         <!-- {{ str }} -->
       </template>
-
       <!-- <p>A paragraph for the main content.</p>
       <p>And another one.</p> -->
-
-      <template #other="{ otherSlotProps }">
+      <template is="otherSlotProps">
         slotProps is NOT available here
       </template>
+      <!-- <template #other="{ otherSlotProps }">
+        slotProps is NOT available here
+      </template> -->
 
       <template v-slot:footer>
         <p>Here's some contact info</p>

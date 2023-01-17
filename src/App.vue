@@ -7,6 +7,8 @@
     <router-link to="/iscomponent">iscomponent</router-link>
     <br>
     <router-link to="/moveslot">moveslot</router-link>
+    <br>
+    <router-link to="/ref">ref</router-link>
     <router-view />
   </div>
 </template>
