@@ -2,6 +2,7 @@
   <div>
     孙子组件:{{ sharedData }}
     <div>{{ propData }}</div>
+    <div>{{ user.name }}</div>
     <button @click="change">改变</button>
   </div>
 </template>
@@ -14,7 +15,7 @@ export default {
     propData: String
   },
 
-  inject: ['sharedData'],
+  inject: ['sharedData', 'user'],
 
   data() {
     return {
@@ -29,6 +30,7 @@ export default {
   methods: {
     change() {
       this.sharedData = '改变共享数据'
+      this.user.name = 'Tom'
     }
   },
 };

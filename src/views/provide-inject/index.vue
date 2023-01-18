@@ -7,6 +7,7 @@
   <div>
     父组件:{{ sharedData }}
     <button @click="change">改变</button>
+    <div>{{ obj.name }}</div>
     <Son />
     <Grand :propData="sharedData" />
   </div>
@@ -32,7 +33,8 @@ export default {
   // provide: { sharedData: this.sharedData },
   provide() {
     return {
-      sharedData: this.sharedData
+      sharedData: this.sharedData,
+      user: this.obj
     }
   },
 
@@ -43,6 +45,7 @@ export default {
   methods: {
     change() {
       this.sharedData = '改变共享数据'
+      this.obj.name = 'Jean'
     }
   },
 };
