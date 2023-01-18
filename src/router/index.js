@@ -5,32 +5,37 @@ Vue.use(VueRouter)
 
 const routes = [{
     path: '/',
-    component: () => import('@/views/syncemit'),
+    component: () => import('@/views/sync-emit'),
     // redirect: '/home',
   }, {
-    path: '/syncemit',
-    component: () => import('@/views/syncemit'),
-    name: 'syncemit'
+    path: '/sync-emit',
+    component: () => import('@/views/sync-emit'),
+    name: 'sync-emit'
   },
   {
-    path: '/ref-v-bindsync',
-    component: () => import('@/views/ref-v-bindsync'),
-    name: 'ref-v-bindsync'
+    path: '/ref-v-bind-sync',
+    component: () => import('@/views/ref-v-bind-sync'),
+    name: 'ref-v-bind-sync'
   },
   {
-    path: '/iscomponent',
-    component: () => import('@/views/iscomponent'),
-    name: 'iscomponent'
+    path: '/is-component',
+    component: () => import('@/views/is-component'),
+    name: 'is-component'
   },
   {
-    path: '/moveslot',
-    component: () => import('@/views/moveslot'),
-    name: 'moveslot'
+    path: '/move-slot',
+    component: () => import('@/views/move-slot'),
+    name: 'move-slot'
   },
   {
     path: '/ref',
     component: () => import('@/views/ref'),
     name: 'ref'
+  },
+  {
+    path: '/provide-inject',
+    component: () => import('@/views/provide-inject'),
+    name: 'provide-inject'
   },
 ]
 

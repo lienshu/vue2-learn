@@ -1,14 +1,16 @@
 <template>
   <div id="app">
-    <router-link to="/syncemit">syncemit</router-link>
+    <router-link to="/sync-emit">sync-emit</router-link>
     <br>
-    <router-link to="/ref-v-bindsync">ref-v-bindsync</router-link>
+    <router-link to="/ref-v-bind-sync">ref-v-bind-sync</router-link>
     <br>
-    <router-link to="/iscomponent">iscomponent</router-link>
+    <router-link to="/is-component">is-component</router-link>
     <br>
-    <router-link to="/moveslot">moveslot</router-link>
+    <router-link to="/move-slot">move-slot</router-link>
     <br>
     <router-link to="/ref">ref</router-link>
+    <br>
+    <router-link to="/provide-inject">provide-inject</router-link>
     <router-view />
   </div>
 </template>
