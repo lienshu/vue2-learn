@@ -37,6 +37,11 @@ const routes = [{
     component: () => import('@/views/provide-inject'),
     name: 'provide-inject'
   },
+  {
+    path: '/emit',
+    component: () => import('@/views/emit'),
+    name: 'emit'
+  },
 ]
 
 

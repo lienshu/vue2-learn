@@ -11,6 +11,8 @@
     <router-link to="/ref">ref</router-link>
     <br>
     <router-link to="/provide-inject">provide-inject</router-link>
+    <br>
+    <router-link to="/emit">emit</router-link>
     <router-view />
   </div>
 </template>

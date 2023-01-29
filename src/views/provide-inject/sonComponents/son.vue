@@ -1,6 +1,6 @@
 <template>
   <div>
-    子组件
+    <h2>子组件</h2>
     <!-- 子组件:{{ sharedData }} -->
     <!-- <Grand /> -->
   </div>

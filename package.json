@@ -11,6 +11,7 @@
     "core-js": "^3.8.3",
     "element-ui": "^2.15.12",
     "less-loader": "^11.1.0",
+    "pikaday": "^1.8.2",
     "vue": "^2.6.14",
     "vue-router": "^3.6.5"
   },
@@ -22,6 +23,7 @@
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+    "moment": "^2.29.4",
     "sass-loader": "^13.2.0",
     "vue-template-compiler": "^2.6.14"
   }
