@@ -1,14 +1,20 @@
 <template>
   <div>
-    匿名插槽
-    <h3>标题</h3>
-    <slot>插槽</slot>
+    <div>
+      <slot name="header" />
+    </div>
+    <div>
+      <slot />
+    </div>
+    <div>
+      <slot name="footer" />
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Vue2AppSlot',
+  name: 'Vue2LearnSlotComponent',
 
   data() {
     return {

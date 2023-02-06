@@ -28,6 +28,11 @@ const routes = [{
     name: 'move-slot'
   },
   {
+    path: '/slot-index',
+    component: () => import('@/views/move-slot/slot-index'),
+    name: 'slot-index'
+  },
+  {
     path: '/ref',
     component: () => import('@/views/ref'),
     name: 'ref'
@@ -41,6 +46,16 @@ const routes = [{
     path: '/emit',
     component: () => import('@/views/emit'),
     name: 'emit'
+  },
+  {
+    path: '/inline-template',
+    component: () => import('@/views/inline-template'),
+    name: 'inline-template'
+  },
+  {
+    path: '/history-listeners',
+    component: () => import('@/views/history-listeners'),
+    name: 'history-listeners'
   },
 ]
 

@@ -30,6 +30,7 @@
 
 <script>
 import Model from './model.vue'
+// 方法一：深拷贝
 // const formData = {
 //   name: '',
 //   region: '',
@@ -97,6 +98,7 @@ export default {
         // 重置data中的某个值
         // } else this.formData = this.$options.data.call(this).formData
         // 重置data中所有的值
+        // 方法二：$options
       } else Object.assign(this.$data, this.$options.data())
     },
     close() {

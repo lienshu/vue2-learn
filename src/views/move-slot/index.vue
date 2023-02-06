@@ -14,11 +14,14 @@
     </div> -->
     <default-slot>
       sdjskdsjkdsjk
+      <div>32323232</div>
     </default-slot>
+
     <named-slot>
       <template v-slot:header1>
         <h1>Here might be a page title</h1>
       </template>
+      <div>eewwew</div>
       <!-- 缩写 -->
       <template slot="header">
         <!-- <template #header="{ str }"> -->
@@ -38,9 +41,11 @@
         <p>Here's some contact info</p>
       </template>
     </named-slot>
+
     <scope-slot v-slot="{ user = { firstName: 'Guest' } }">
       {{ user.firstName }}
     </scope-slot>
+
     <scope-slot>
       <template v-slot="{ user = { firstName: 'li', lastName: 'si' } }">
         firstName:{{ user.firstName }}
@@ -48,12 +53,15 @@
         lastName:{{ user.lastName }}
       </template>
     </scope-slot>
+
     <dynamic-slot>
       <template v-slot:[dynamicName]>
         This is me
       </template>
     </dynamic-slot>
+
     <button @click="change">切换</button>
+
     <to-do-list>
       <template #todo="{ todo }">
         <span v-if="todo.isComplete">✓</span>
