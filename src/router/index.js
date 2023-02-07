@@ -57,6 +57,11 @@ const routes = [{
     component: () => import('@/views/history-listeners'),
     name: 'history-listeners'
   },
+  {
+    path: '/transition',
+    component: () => import('@/views/transition'),
+    name: 'transition'
+  },
 ]
 
 
