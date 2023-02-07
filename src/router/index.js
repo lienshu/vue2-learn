@@ -62,6 +62,16 @@ const routes = [{
     component: () => import('@/views/transition'),
     name: 'transition'
   },
+  {
+    path: '/mixin',
+    component: () => import('@/views/mixin'),
+    name: 'mixin'
+  },
+  {
+    path: '/directive',
+    component: () => import('@/views/directive'),
+    name: 'directive'
+  },
 ]
 
 
