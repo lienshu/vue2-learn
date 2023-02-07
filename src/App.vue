@@ -20,6 +20,8 @@
     <router-link to="/inline-template">inline-template</router-link>
     <br>
     <router-link to="/history-listeners">history-listeners</router-link>
+    <br>
+    <router-link to="/transition">transition</router-link>
     <!-- router-view 显示 路由视图内容 -->
     <router-view />
   </div>
