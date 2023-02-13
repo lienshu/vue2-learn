@@ -72,6 +72,11 @@ const routes = [{
     component: () => import('@/views/directive'),
     name: 'directive'
   },
+  {
+    path: '/filter',
+    component: () => import('@/views/filter'),
+    name: 'filter'
+  },
 ]
 
 
