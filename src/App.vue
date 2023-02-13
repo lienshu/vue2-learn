@@ -26,6 +26,8 @@
     <router-link to="/mixin">mixin</router-link>
     <br>
     <router-link to="/directive">directive</router-link>
+    <br>
+    <router-link to="/filter">filter</router-link>
     <!-- router-view 显示 路由视图内容 -->
     <router-view />
   </div>
