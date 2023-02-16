@@ -30,6 +30,7 @@
     <!-- 当root-element组件中 目标预监听元素不是根元素时 .native会触发onClick事件 子组件有v-on="$listeners"属性 focus不绑定.native修饰符 会触发onFocus事件 -->
     非根元素<root-element @focus="onFocus" @click.native="onClick" />
     <hr>
+    <div>base-input</div>
     <!-- 
       $listeners 
       如果目标预监听的元素不是根元素
@@ -102,7 +103,7 @@ export default {
     },
     onInput() {
       // 当子组件 base-input 没有 $listeners 时，不打印 'input' ，有 $listeners 时打印 'input'
-      console.log('input')
+      console.log(event.target.value)
     },
     onClick() {
       console.log('onClick')

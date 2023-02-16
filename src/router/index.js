@@ -30,7 +30,26 @@ const routes = [{
   {
     path: '/slot-index',
     component: () => import('@/views/move-slot/slot-index'),
-    name: 'slot-index'
+    name: 'slot-index',
+  },
+  {
+    path: '/route-push-name',
+    component: () => import('@/views/move-slot/components/route-push-name'),
+    name: 'route-push-name',
+  },
+  {
+    path: '/route-push-path',
+    component: () => import('@/views/move-slot/components/route-push-path'),
+    name: 'route-push-path',
+  },
+  {
+    // 在路径中使用动态字段来实现，称之为路径参数
+    // $route.push时， 使用name和params跳转，使用params接收参数
+    path: '/route-push/:text',
+    component: () => import('@/views/move-slot/components/route-push'),
+    // 路由表中设置props为true时，组件中可以在props中获取路径参数
+    props: true,
+    name: 'route-push',
   },
   {
     path: '/ref',
@@ -76,6 +95,11 @@ const routes = [{
     path: '/filter',
     component: () => import('@/views/filter'),
     name: 'filter'
+  },
+  {
+    path: '/todo-list',
+    component: () => import('@/views/todo'),
+    name: 'todo-list'
   },
 ]
 

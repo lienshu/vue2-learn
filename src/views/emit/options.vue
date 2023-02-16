@@ -24,7 +24,7 @@
     <hr>
     <el-button type="text" @click="click('add')">新增</el-button>
     <el-button type="text" @click="click('update')">编辑</el-button>
-    <Model :dialogVisible="visible" @close="close" :type="type" :formData="formData" />
+    <Model :dialogVisible="visible" @close="close" :type="type" :formData.sync="formData" />
   </div>
 </template>
 
