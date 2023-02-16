@@ -16,7 +16,7 @@
 export default {
   name: 'Vue2LearnSlotComponent',
   props: {
-    str: String
+    strText: String
   },
 
   data() {
@@ -26,7 +26,7 @@ export default {
   },
 
   mounted() {
-    console.log(this.str, 'props')
+    console.log(this.strText, 'props')
   },
 
   methods: {

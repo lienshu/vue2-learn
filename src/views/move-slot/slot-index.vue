@@ -1,6 +1,6 @@
 <template>
   <div>
-    <slot-component :str="str">
+    <slot-component :str-text="str">
       <!-- 插槽 -->
       <template #header>
         <h1>标题</h1>
