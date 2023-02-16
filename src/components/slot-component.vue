@@ -15,6 +15,9 @@
 <script>
 export default {
   name: 'Vue2LearnSlotComponent',
+  props: {
+    str: String
+  },
 
   data() {
     return {
@@ -23,7 +26,7 @@ export default {
   },
 
   mounted() {
-
+    console.log(this.str, 'props')
   },
 
   methods: {

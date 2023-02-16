@@ -14,14 +14,13 @@
 </template>
 
 <script>
-
 export default {
   name: 'Vue2LearnModel',
-  props: {
-    dialogVisible: Boolean,
-    type: String,
-    formData: Object
-  },
+  // props: {
+  //   dialogVisible: Boolean,
+  //   type: String,
+  //   formData: Object
+  // },
   data() {
     return {
       labelPosition: 'right',
