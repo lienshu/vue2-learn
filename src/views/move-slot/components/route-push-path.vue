@@ -15,7 +15,11 @@ export default {
   },
 
   mounted() {
+    // 路由跳转方式：path&query
+    // 参数拼接路径的路由跳转，均使用query接收参数
     console.log(this.$route.query.routeTextPath, 'query')
+    // params为空
+    console.log(this.$route.params.routeTextPath, 'params')
   },
 
   methods: {
@@ -24,6 +28,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
