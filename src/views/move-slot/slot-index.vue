@@ -7,9 +7,9 @@
       </template>
       <!-- <h3>中间内容</h3> -->
       <!-- 
-      如果组件内有 template name是default 的组件，
-      则在 组件中的单独写标签会不生效 
-    -->
+                              如果组件内有 template name是default 的组件，
+                              则在 组件中的单独写标签会不生效 
+                            -->
       <template #default>
         <h3>中间内容</h3>
       </template>
@@ -23,10 +23,10 @@
     <hr>
     参数拼接到路由表的path后面 <button @click="routePush">路由表path拼接参数</button>
     <!-- 
-      questionMark 为undefined时 
-        - questionMark?.age 加?. 页面不会报错
-        - questionMark.age 不加?. 页面会报错
-    -->
+                              questionMark 为undefined时 
+                                - questionMark?.age 加?. 页面不会报错
+                                - questionMark.age 不加?. 页面会报错
+                            -->
     <div>问号：{{ questionMark?.age }}</div>
     <!-- arr存在 age前面加不加?. 页面都不会报错 -->
     <div>问号：{{ arr?.age }}</div>
@@ -52,6 +52,15 @@ export default {
     };
   },
 
+  watch: {
+    $route: {
+      handler(route) {
+        console.log(route, 'route')
+      },
+      immediate: true
+    }
+  },
+
   mounted() {
 
   },
@@ -68,11 +77,14 @@ export default {
     routePushPath() {
       // query 会拼接到URL上
       // this.$router.push({ path: 'route-push-path', query: { routeTextPath: this.routeTextPath } })
-      // 或使用拼接参数的方式，传递参数
+      // 或拼接参数的方式，传递参数
       this.$router.push(`/route-push-path?routeTextPath=${this.routeTextPath}`)
     },
     routePush() {
-      this.$router.push({ name: 'route-push', params: { text: this.routeText }, query: { text: this.routeText } })
+      // 当路由表中，是将参数拼接在path后面时，可以使用name&params传递参数
+      // this.$router.push({ name: 'route-push', params: { text: this.routeText }, query: { text: this.routeText } })
+      // 或拼接参数的方式，传递参数，但是此时键名不能用 : 拼接路径，应使用 /
+      this.$router.push(`/route-push/text=${this.routeTextPath}`)
     },
     handleClick() {
       console.log(this.questionMark.age)
@@ -81,6 +93,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

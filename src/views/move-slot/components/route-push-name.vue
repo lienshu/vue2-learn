@@ -15,6 +15,10 @@ export default {
   },
 
   mounted() {
+    // 路由跳转方式：name&params
+    // 当参数拼接在路由地址后面时，使用.query获取参数
+    console.log(this.$route.query.routerTextName, 'query')
+    // 当路由是拆开展示，name和params分别传值时，使用.params获取参数
     console.log(this.$route.params.routerTextName, 'params')
   },
 
@@ -24,6 +28,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
