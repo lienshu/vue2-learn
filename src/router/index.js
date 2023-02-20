@@ -101,6 +101,11 @@ const routes = [{
     component: () => import('@/views/todo'),
     name: 'todo-list'
   },
+  {
+    path: '/css',
+    component: () => import('@/views/css-component'),
+    name: 'css'
+  },
 ]
 
 

@@ -4,9 +4,11 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import router from './router'
 import animated from 'animate.css'
+import 'windi.css'
 
 // 自定义指令直接引入或循环再directive
 import * as directives from '@/directives/focus'
+
 // import focus from '@/directives/focus'
 
 // 自定义指令
