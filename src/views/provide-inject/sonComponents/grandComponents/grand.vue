@@ -2,20 +2,21 @@
   <div>
     孙子组件
     <div>inject-sharedData: {{ sharedData }}</div>
+    <div>inject-text: {{ text }}</div>
     <div>props-propData: {{ propData }}</div>
-    <div>inject-name: {{ user.name }}</div>
+    <!-- <div>inject-name: {{ user.name }}</div>
     <div>inject-color: {{ color }}</div>
-    <div>inject-color_fn: {{ color_fn() }}</div>
+    <div>inject-color_fn: {{ color_fn() }}</div> -->
     <div>inject-data:
       <ul>
         <li>
-          <div>color: {{ data.color }}</div>
+          <!-- <div>color: {{ data.color }}</div> -->
         </li>
         <li>
-          <div>name: {{ data.obj.name }}</div>
+          <!-- <div>name: {{ data.obj.name }}</div> -->
         </li>
         <li>
-          <div>sharedData: {{ data.sharedData }}</div>
+          <!-- <div>sharedData: {{ data.sharedData }}</div> -->
         </li>
       </ul>
     </div>
@@ -47,22 +48,29 @@ export default {
       from: 'sharedData',
       default: ''
     },
-    user: {
-      from: 'user',
+    text: {
+      from: 'text',
       default: ''
     },
-    color_fn: {
-      from: 'color_fn',
-      default: () => { return '' }
-    },
-    color: {
-      from: 'color',
-      default: ''
-    },
-    data: {
-      from: 'data',
-      default: ''
+    speak: {
+      from: "speak"
     }
+    // user: {
+    //   from: 'user',
+    //   default: ''
+    // },
+    // color_fn: {
+    //   from: 'color_fn',
+    //   default: () => { return '' }
+    // },
+    // color: {
+    //   from: 'color',
+    //   default: ''
+    // },
+    // data: {
+    //   from: 'data',
+    //   default: ''
+    // }
   },
 
   data() {
@@ -73,7 +81,9 @@ export default {
   },
 
   mounted() {
-    console.log(this.data._provided, 'data')
+    this.speak()
+    // console.log(this.data._provided, 'data')
+    // console.log(this.speak)
   },
 
   methods: {
@@ -86,6 +96,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

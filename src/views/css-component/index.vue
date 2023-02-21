@@ -18,9 +18,12 @@ export default {
 
     };
   },
+  created: function () {
+    console.log('1111')
+  },
 
   mounted() {
-
+    console.log('222')
   },
 
   methods: {
