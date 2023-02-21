@@ -37,30 +37,37 @@ export default {
     };
   },
   // provide写成对象的形式，访问不到Vue实例，为什么不能访问到Vue实例
-  // provide: { sharedData: this.sharedData },
-  provide() {
-    return {
-      sharedData: this.sharedData,
-      // 对象形式
-      user: this.obj,
-      // 箭头函数形式 箭头函数可以获取到this 
-      // 为什么箭头函数可以获取到正确的this，匿名函数就不可以
-      // color_fn: () => {
-      //   console.log(this)
-      //   return this.color
-      // },
-      color_fn: function () {
-        console.log(this)
-        return this.color
-      },
-      color: this.color,
-      // 更好的解决方案 把provide所有的Vue实例都传递下去
-      data: this
-    }
-  },
+  // 因为对象中获取不到this
+  // 所以在Vue2中，使用provide时，如果是字符串 或 不是获取的data数据，可以写成对象的形式
+  // 如果是获取的data中的数据，provide只能写成函数的形式，只有函数才能获取到this
+  provide: { sharedData: 'provide对象的形式', text: '21212121', speak() { console.log(this.sharedData, 'this.sharedData') } },
+  // provide() {
+  //   return {
+  //     sharedData: this.sharedData,
+  //     // 对象形式
+  //     user: this.obj,
+  //     // 箭头函数形式 箭头函数可以获取到this 
+  //     // 为什么箭头函数可以获取到正确的this，匿名函数就不可以
+  //     // color_fn: () => {
+  //     //   console.log(this)
+  //     //   return this.color
+  //     // },
+  //     color_fn: function () {
+  //       console.log(this)
+  //       return this.color
+  //     },
+  //     color: this.color,
+  //     // 更好的解决方案 把provide所有的Vue实例都传递下去
+  //     data: this
+  //   }
+  // },
 
   mounted() {
-
+    console.log(this.sharedData, 'this')
+    console.log(this.text, 'text')
+    console.log(this.provide, 'provide')
+    console.log(this, 'this')
+    this.change()
   },
 
   methods: {
@@ -68,11 +75,10 @@ export default {
       this.sharedData = '改变共享数据'
       this.obj.name = 'Jean'
       this.color = 'pink'
+      console.log('2222')
     }
   },
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

@@ -1,15 +1,15 @@
 <template>
   <div>
-    <el-dialog title="收货地址" :visible.sync="dialogVisible" :before-close="handleClose">
-      <el-form :label-position="labelPosition" label-width="80px" :model="formData">
-        <el-form-item label="名称">
-          <el-input v-model="formData.name"></el-input>
-        </el-form-item>
-        <el-form-item label="活动区域">
-          <el-input v-model="formData.region"></el-input>
-        </el-form-item>
-      </el-form>
-    </el-dialog>
+    <!-- <el-dialog title="收货地址" :visible.sync="dialogVisible" :before-close="handleClose"> -->
+    <el-form :label-position="labelPosition" label-width="80px" :model="formData">
+      <el-form-item label="名称">
+        <el-input v-model="formData.name"></el-input>
+      </el-form-item>
+      <el-form-item label="活动区域">
+        <el-input v-model="formData.region"></el-input>
+      </el-form-item>
+    </el-form>
+    <!-- </el-dialog> -->
   </div>
 </template>
 
@@ -39,6 +39,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

@@ -16,7 +16,9 @@ export default {
       bar: 'def'
     };
   },
-
+  created: function () {
+    console.log('组件钩子调用')
+  },
 
   mounted() {
     // console.log(document.addEventListener, '1111')
@@ -37,6 +39,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
