@@ -13,6 +13,7 @@
     <div>{{ color }}</div>
     <hr>
     <Son />
+    {{ name }}
     <hr>
     <Grand :propData="sharedData" />
   </div>
@@ -34,6 +35,7 @@ export default {
         name: 'eavan'
       },
       color: 'red',
+      name: '小明'
     };
   },
   // provide写成对象的形式，访问不到Vue实例，为什么不能访问到Vue实例
@@ -76,6 +78,9 @@ export default {
       this.obj.name = 'Jean'
       this.color = 'pink'
       console.log('2222')
+    },
+    changeName() {
+      this.name = '小红'
     }
   },
 };
