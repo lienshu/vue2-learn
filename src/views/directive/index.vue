@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-loadmore>
     自定义指令
     <input v-focus type="text">
     <hr>
@@ -10,12 +10,22 @@
     <hr>
     <hr>
     <el-button type="primary">主要按钮</el-button>
+    <div>
+      <img src="@/assets/img/directive/7.jpeg" alt="">
+      <img src="@/assets/img/directive/8.jpeg" alt="">
+      <img src="@/assets/img/directive/9.jpeg" alt="">
+      <img src="@/assets/img/directive/10.jpeg" alt="">
+      <img src="@/assets/img/directive/11.jpg" alt="">
+    </div>
+
     <!-- <button v-auth="false">自定义指令</button>
     <button v-auth="true">自定义指令</button> -->
   </div>
 </template>
 
 <script>
+import { useWindowScroll } from '@vueuse/core'
+const { y } = useWindowScroll()
 export default {
   name: 'Vue2LearnIndex',
 
@@ -54,6 +64,7 @@ export default {
       console.log('--------------push的分割线---------------')
       this.list.push(4)
     }, 3000)
+    window.addEventListener('scroll', function () { console.log(y, 'y') }, true);
 
   },
 
@@ -63,6 +74,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

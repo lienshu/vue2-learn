@@ -1,7 +1,7 @@
 <template>
   <div>
     emit
-    <button @click="onEmit">onEmit</button>
+    <el-button @click="onEmit">onEmit</el-button>
     <button @click="onOff">onOff</button>
     <button @click="onOn">onOn</button>
     <hr>
@@ -60,6 +60,7 @@ export default {
       this.$emit('onTestOnce', 6)
       this.$emit('onTestOnce', 7)
       this.$emit('onTestOnce', 8)
+      this.$message.success('测试')
     },
     onOff() {
       // 取消监听
@@ -84,6 +85,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

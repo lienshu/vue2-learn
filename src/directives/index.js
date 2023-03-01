@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import loadMore from './loadmore/index'
 
 // 注册一个全局自定义指令 'v-focus'
 Vue.directive('focus', {
@@ -17,3 +18,5 @@ Vue.directive('auth', {
     return binging.value
   }
 })
+
+Vue.directive('loadmore', loadMore)
