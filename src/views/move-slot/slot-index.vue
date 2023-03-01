@@ -31,6 +31,8 @@
     <!-- arr存在 age前面加不加?. 页面都不会报错 -->
     <div>问号：{{ arr?.age }}</div>
     <button @click="handleClick">测试</button>
+    <div>{{ nextTick }}</div>
+    <el-button type="primary" @click="nextTickFn">nextTick</el-button>
   </div>
 </template>
 
@@ -48,7 +50,8 @@ export default {
       routeText: 'text',
       questionMark: undefined,
       str: '年交税的比例怎么算',
-      arr: { name: '张三' }
+      arr: { name: '张三' },
+      nextTick: '测试nextTick'
     };
   },
 
@@ -88,6 +91,9 @@ export default {
     },
     handleClick() {
       console.log(this.questionMark.age)
+    },
+    nextTickFn() {
+      this.nextTick = '修改nextTick'
     }
   },
 };
