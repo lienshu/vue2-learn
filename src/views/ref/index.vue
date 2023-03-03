@@ -3,7 +3,7 @@
     ref
     <ref-component ref="sonRef"></ref-component>
     <!-- <div>父组件：{{ $refs.ref.data }}</div> -->
-    <button @click="change">更改</button>
+    <el-button @click="change">更改</el-button>
   </div>
 </template>
 
@@ -36,6 +36,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

@@ -2,8 +2,8 @@
   <div>
     emit
     <el-button @click="onEmit">onEmit</el-button>
-    <button @click="onOff">onOff</button>
-    <button @click="onOn">onOn</button>
+    <el-button @click="onOff">onOff</el-button>
+    <el-button @click="onOn">onOn</el-button>
     <hr>
     {{ data }}
     <hr>

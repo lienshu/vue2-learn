@@ -17,11 +17,11 @@
         <h4>底部</h4>
       </template>
     </slot-component>
-    <button @click="routePushName">路由跳转--name</button>
+    <el-button type="primary" @click="routePushName">路由跳转--name:route-push-name</el-button>
     <hr>
-    <button @click="routePushPath">路由跳转--path</button>
+    <el-button type="primary" @click="routePushPath">路由跳转--path:route-push-path</el-button>
     <hr>
-    参数拼接到路由表的path后面 <button @click="routePush">路由表path拼接参数</button>
+    参数拼接到路由表的path后面 <el-button type="primary" @click="routePush">路由表path拼接参数:route-push</el-button>
     <!-- 
                               questionMark 为undefined时 
                                 - questionMark?.age 加?. 页面不会报错
@@ -30,7 +30,7 @@
     <div>问号：{{ questionMark?.age }}</div>
     <!-- arr存在 age前面加不加?. 页面都不会报错 -->
     <div>问号：{{ arr?.age }}</div>
-    <button @click="handleClick">测试</button>
+    <el-button type="primary" @click="handleClick">测试</el-button>
     <div>{{ nextTick }}</div>
     <el-button type="primary" @click="nextTickFn">nextTick</el-button>
   </div>

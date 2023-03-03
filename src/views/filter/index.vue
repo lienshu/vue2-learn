@@ -9,7 +9,7 @@
     <ul>
       <li v-for="item in crr" :key="item">{{ item }}</li>
     </ul>
-    <button @click="click">点击</button>
+    <el-button @click="click">点击</el-button>
   </div>
 </template>
 
@@ -60,6 +60,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

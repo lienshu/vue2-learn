@@ -20,7 +20,7 @@
         </li>
       </ul>
     </div>
-    <button @click="change">改变</button>
+    <el-button @click="change">改变</el-button>
   </div>
 </template>
 

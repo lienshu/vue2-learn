@@ -12,7 +12,7 @@
   <div>
     vue的$options属性
     <hr>
-    <button @click="getTextFn">options</button>
+    <el- @click="getTextFn">options</el->
     <div>{{ text | filterTextFn }}</div>
     <!-- <div>{{ text }}</div> -->
     <!-- <div>{{ filterText }}</div> -->
@@ -20,7 +20,7 @@
     <!-- <div>{{ a | b }}</div> -->
     <div>{{ a }}</div>
     <div>{{ b }}</div>
-    <button @click="reset">重置</button>
+    <el-button @click="reset">重置</el-button>
     <hr>
     <el-button type="text" @click="click('add')">新增</el-button>
     <el-button type="text" @click="click('update')">编辑</el-button>
@@ -108,6 +108,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

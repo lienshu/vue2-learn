@@ -2,7 +2,7 @@
   <div>
     transition
     <el-radio v-model="radio" label="1">备选项</el-radio>
-    <button v-on:click="show = !show">Toggle</button>
+    <el-button type="primary" v-on:click="show = !show">Toggle</el-button>
     <transition name="fade">
       <p v-if="show">hello</p>
     </transition>
@@ -19,13 +19,13 @@
     <transition name="component-fade" mode="out-in">
       <component :is="componentId"></component>
     </transition>
-    <button @click="add">Add</button>
-    <button @click="remove">Remove</button>
-    <button @click="shuffle">shuffle</button>
+    <el-button type="primary" @click="add">Add</el-button>
+    <el-button type="primary" @click="remove">Remove</el-button>
+    <el-button type="primary" @click="shuffle">shuffle</el-button>
     <transition-group name="list" tag="p">
       <span v-for="item in items" :key="item" class="list-item">{{ item }}</span>
     </transition-group>
-    <button @click='shuffle'>shuffle</button>
+    <el-button type="primary" @click='shuffle'>shuffle</el-button>
     <transition-group name="flip-list" tag="ul">
       <li v-for="item in items" :key="item">{{ item }}</li>
     </transition-group>
