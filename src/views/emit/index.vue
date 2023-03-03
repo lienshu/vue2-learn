@@ -10,17 +10,22 @@
     <sub-index :data.sync="data" />
     <hr>
     <Options />
+    <welcome-button @welcome="sayhi" />
   </div>
 </template>
 
 <script>
 import SubIndex from './sub_index.vue'
 import Options from './options.vue'
+import WelcomeButton from './$emit.vue'
 
 export default {
   name: 'Vue2LearnIndex',
 
-  components: { SubIndex, Options },
+  components: {
+    SubIndex, Options,
+    WelcomeButton
+  },
 
   data() {
     return {
@@ -80,6 +85,9 @@ export default {
       this.$once('onTestOnce', (args) => {
         console.log(args, 'once')
       })
+    },
+    sayhi() {
+      alert('Hi')
     }
   },
 };
