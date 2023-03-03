@@ -34,6 +34,8 @@
     <router-link to="/css">css</router-link>
     <br>
     <router-link to="/attrs">attrs</router-link>
+    <br>
+    <router-link to="/$on">$on</router-link>
     <!-- router-view 显示 路由视图内容 -->
     <router-view />
   </div>
