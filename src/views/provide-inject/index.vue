@@ -8,7 +8,7 @@
 <template>
   <div>
     父组件:{{ sharedData }}
-    <button @click="change">改变</button>
+    <el-button @click="change">改变</el-button>
     <div>{{ obj.name }}</div>
     <div>{{ color }}</div>
     <hr>

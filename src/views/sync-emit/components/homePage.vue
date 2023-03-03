@@ -38,7 +38,7 @@
     <input type="text" v-model="text" @input="changeValue(text)">
     <input type="text" :value="text" @input="changeValue(text)">
     <input type="text" :value="testData" @input="testFn($event)">
-    <button @click="click">button</button>
+    <el-button type="primary" @click="click">button</el-button>
     <br>
     <br>
     <br>
@@ -50,9 +50,9 @@
     <br>
     <br>
     <input :value="domValue[0].name" @input="clickFn($event)">
-    <button v-on:click="warn('Form cannot be submitted yet.', $event)">
+    <el-button type="primary" v-on:click="warn('Form cannot be submitted yet.', $event)">
       Submit
-    </button>
+    </el-button>
     <form>
       <label for="id-checkbox">Checkbox:</label>
       <input type="checkbox" id="id-checkbox" />

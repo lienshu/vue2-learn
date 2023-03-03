@@ -1,9 +1,9 @@
 <template>
   <li>
     {{ todo.text }}
-    <button @click="$emit('remove', todo.id)">
+    <el-button type="primary" @click="$emit('remove', todo.id)">
       X
-    </button>
+    </el-button>
   </li>
 </template>
 
@@ -20,6 +20,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

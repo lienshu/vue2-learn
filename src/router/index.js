@@ -106,6 +106,11 @@ const routes = [{
     component: () => import('@/views/css-component'),
     name: 'css'
   },
+  {
+    path: '/attrs',
+    component: () => import('@/views/attrs'),
+    name: '/attrs'
+  },
 ]
 
 

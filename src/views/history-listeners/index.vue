@@ -39,8 +39,8 @@
     -->
     <base-input @input="onInput" />
     <hr>
-    <button @click="search" :style="{ marginLeft: '20px', marginRight: '20px' }">搜索</button>
-    <button @click="clear">清空历史记录</button>
+    <el-button @click="search" :style="{ marginLeft: '20px', marginRight: '20px' }">搜索</el-button>
+    <el-button @click="clear">清空历史记录</el-button>
   </div>
 </template>
 
@@ -115,6 +115,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

@@ -60,7 +60,7 @@
       </template>
     </dynamic-slot>
 
-    <button @click="change">切换</button>
+    <el-button @click="change">切换</el-button>
 
     <to-do-list>
       <template #todo="{ todo }">
@@ -68,6 +68,7 @@
         {{ todo.text }}
       </template>
     </to-do-list>
+    git stash的使用
   </div>
 </template>
 

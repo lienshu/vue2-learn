@@ -4,8 +4,8 @@
     <div v-for="(item, index) in object" :key="item">
       {{ index }}:{{ item }}
     </div>
-    <button @click="changeArr">改变原对象</button>
-    <button @click="changeObj">改变原数组</button>
+    <el-button @click="changeArr">改变原对象</el-button>
+    <el-button @click="changeObj">改变原数组</el-button>
     <!-- <div v-for="item in array" :key="item.name">
       <br> <br>
       <div :style="{ border: '2px solid pink' }">name:{{ item.name }}</div>
@@ -27,7 +27,7 @@
     <!-- <input type="radio" v-model="pick" v-bind:value="a">
     <br>
     <input type="checkbox" v-model="toggle" true-value="yes" false-value="no"> -->
-    <button v-for="(item, index) in tags" :key="index" @click="currentTab(item.name)">{{ item.name }}</button>
+    <el-button v-for="(item, index) in tags" :key="index" @click="currentTab(item.name)">{{ item.name }}</el-button>
     <component :is="componentTag">
       <slot />
     </component>
@@ -117,6 +117,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
