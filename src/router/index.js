@@ -111,6 +111,11 @@ const routes = [{
     component: () => import('@/views/attrs'),
     name: '/attrs'
   },
+  {
+    path: '/$on',
+    component: () => import('@/views/$on'),
+    name: '/$on'
+  },
 ]
 
 

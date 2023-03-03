@@ -49,6 +49,12 @@ export default {
       deep: true
     }
   },
+  // 不需要newVal或oldVal时，不需要使用handler
+  //   watch: {
+  //   images() {
+  //     this.id = Date.now();
+  //   }
+  // },
 
   mounted() {
 
@@ -84,6 +90,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
