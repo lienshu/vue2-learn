@@ -2,7 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import router from './router'
+import router from './router';
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/css/swiper.css'
 import animated from 'animate.css'
 import 'windi.css'
 
@@ -18,7 +20,8 @@ Object.keys(directives).forEach(key => {
 
 Vue.config.productionTip = false
 Vue.use(ElementUI);
-Vue.use(animated)
+Vue.use(animated);
+Vue.use(VueAwesomeSwiper);
 
 new Vue({
   el: '#app',
