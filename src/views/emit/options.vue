@@ -12,7 +12,7 @@
   <div>
     vue的$options属性
     <hr>
-    <el- @click="getTextFn">options</el->
+    <el-button @click="getTextFn">options</el-button>
     <div>{{ text | filterTextFn }}</div>
     <!-- <div>{{ text }}</div> -->
     <!-- <div>{{ filterText }}</div> -->
@@ -87,7 +87,9 @@ export default {
       console.log(this.$data, '$data')
     },
     click(val) {
+      console.log(111)
       this.visible = true
+      console.log(this.visible)
       this.type = val
       if (this.type === 'update') {
         this.formData = {
@@ -96,10 +98,11 @@ export default {
         }
         // } else this.formData = { name: '', region: '' }
         // 重置data中的某个值
-        // } else this.formData = this.$options.data.call(this).formData
-        // 重置data中所有的值
-        // 方法二：$options
-      } else Object.assign(this.$data, this.$options.data())
+      } else this.formData = this.$options.data.call(this).formData
+      // 重置data中所有的值
+      // 方法二：$options
+      // 不能用this.$options.data()方法，这样把visible的值也初始化为false，弹窗不显示
+      // } else Object.assign(this.$data, this.$options.data())
     },
     close() {
       this.visible = false

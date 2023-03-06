@@ -4,23 +4,30 @@
     <el-button @click="onEmit">onEmit</el-button>
     <el-button @click="onOff">onOff</el-button>
     <el-button @click="onOn">onOn</el-button>
+    <div v-html="html"></div>
     <hr>
     {{ data }}
     <hr>
     <sub-index :data.sync="data" />
     <hr>
     <Options />
+    <welcome-button @welcome="sayhi" />
+    <span v-pre>{{ this will not be compiled }}</span>
   </div>
 </template>
 
 <script>
 import SubIndex from './sub_index.vue'
 import Options from './options.vue'
+import WelcomeButton from './$emit.vue'
 
 export default {
   name: 'Vue2LearnIndex',
 
-  components: { SubIndex, Options },
+  components: {
+    SubIndex, Options,
+    WelcomeButton
+  },
 
   data() {
     return {
@@ -30,7 +37,8 @@ export default {
       timer3: setInterval(() => {
         // 某些定时器操作                
       }, 7000),
-      data: '测试'
+      data: '测试',
+      html: '<div><h1>标题</h1><p>hello world</p></div>'
     };
   },
 
@@ -80,6 +88,9 @@ export default {
       this.$once('onTestOnce', (args) => {
         console.log(args, 'once')
       })
+    },
+    sayhi() {
+      alert('Hi')
     }
   },
 };
