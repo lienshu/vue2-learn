@@ -2,7 +2,7 @@
   <div>
     vm.$on
     <VOn event="mouseenter" />
-    <VOn />
+    <!-- <VOn /> -->
   </div>
 </template>
 
