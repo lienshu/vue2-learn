@@ -1,13 +1,17 @@
 <template>
   <div>
     vm.$on
+    <VOn event="mouseenter" />
+    <VOn />
   </div>
 </template>
 
 <script>
+import VOn from './v-on.vue'
+
 export default {
   name: 'Vue2LearnIndex',
-
+  components: { VOn },
   data() {
     return {
 

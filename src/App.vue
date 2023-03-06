@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="app">
     <!-- router-link 实现 路由跳转 动作 -->
     <router-link to="/sync-emit">sync-emit</router-link>
     <br>
@@ -48,5 +48,10 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.app {
+  color: blue;
+  cursor: pointer;
+}
+</style>
 

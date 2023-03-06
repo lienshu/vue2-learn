@@ -4,6 +4,7 @@
     <el-button @click="onEmit">onEmit</el-button>
     <el-button @click="onOff">onOff</el-button>
     <el-button @click="onOn">onOn</el-button>
+    <div v-html="html"></div>
     <hr>
     {{ data }}
     <hr>
@@ -11,6 +12,7 @@
     <hr>
     <Options />
     <welcome-button @welcome="sayhi" />
+    <span v-pre>{{ this will not be compiled }}</span>
   </div>
 </template>
 
@@ -35,7 +37,8 @@ export default {
       timer3: setInterval(() => {
         // 某些定时器操作                
       }, 7000),
-      data: '测试'
+      data: '测试',
+      html: '<div><h1>标题</h1><p>hello world</p></div>'
     };
   },
 
