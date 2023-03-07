@@ -72,22 +72,22 @@ export default {
     routePushName() {
       // params 不会拼接到URL上
       // this.$router.push({ name: 'route-push-name', params: { routerTextName: this.routerTextName } })
-      this.$router.push(`/route-push-name?routerTextName=${this.routerTextName}`)
+      this.$router.push(`/home/route-push-name?routerTextName=${this.routerTextName}`)
       // 路由地址的 / 可加可不加
-      // this.$router.push(`route-push-name?routerTextName=${this.routerTextName}`)
+      // this.$router.push(`/home/route-push-name?routerTextName=${this.routerTextName}`)
 
     },
     routePushPath() {
       // query 会拼接到URL上
       // this.$router.push({ path: 'route-push-path', query: { routeTextPath: this.routeTextPath } })
       // 或拼接参数的方式，传递参数
-      this.$router.push(`/route-push-path?routeTextPath=${this.routeTextPath}`)
+      this.$router.push(`/home/route-push-path?routeTextPath=${this.routeTextPath}`)
     },
     routePush() {
       // 当路由表中，是将参数拼接在path后面时，可以使用name&params传递参数
       // this.$router.push({ name: 'route-push', params: { text: this.routeText }, query: { text: this.routeText } })
       // 或拼接参数的方式，传递参数，但是此时键名不能用 : 拼接路径，应使用 /
-      this.$router.push(`/route-push/text=${this.routeTextPath}`)
+      this.$router.push(`/home/route-push/text=${this.routeTextPath}`)
     },
     handleClick() {
       console.log(this.questionMark.age)

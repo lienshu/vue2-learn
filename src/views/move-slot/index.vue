@@ -68,6 +68,7 @@
         {{ todo.text }}
       </template>
     </to-do-list>
+    <el-button @click="$router.push('/router-replace')">replace</el-button>
     git stash的使用
   </div>
 </template>
@@ -97,7 +98,7 @@ export default {
   },
 
   mounted() {
-
+    console.log('页面首次进入')
   },
 
   methods: {
