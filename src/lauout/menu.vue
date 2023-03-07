@@ -2,9 +2,14 @@
   <div class="flex">
     <left-nav />
     <!-- router-view 显示 路由视图内容 -->
-    <router-view></router-view>
-    <router-view name="Bottom"></router-view>
-    <router-view name="Top"></router-view>
+    <!-- <router-view v-slot="{ Component }">
+      <transition name="fade">
+        <component :is="Component" />
+      </transition>
+    </router-view> -->
+    <router-view class="ml-300px"></router-view>
+    <router-view class="ml-300px" name="Bottom"></router-view>
+    <router-view class="ml-300px" name="Top"></router-view>
   </div>
 </template>
 

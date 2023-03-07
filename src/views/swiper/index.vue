@@ -141,7 +141,7 @@ export default {
 //   background-color: aquamarine;
 // }
 .my-swiper {
-  width: 100%;
+  width: 500px;
   height: auto;
   --swiper-navigation-color: white;
   /*左右箭头按钮颜色*/

@@ -22,12 +22,18 @@ const routes = [{
       {
         path: '/is-component',
         component: () => import('@/views/is-component'),
-        name: 'is-component'
+        name: 'is-component',
+        meta: {
+          transition: 'slide-left'
+        },
       },
       {
         path: '/move-slot',
         component: () => import('@/views/move-slot'),
-        name: 'move-slot'
+        name: 'move-slot',
+        meta: {
+          transition: 'slide-right'
+        },
       },
       {
         path: '/router-replace',
