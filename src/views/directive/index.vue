@@ -10,7 +10,7 @@
     <hr>
     <hr>
     <el-button type="primary">主要按钮</el-button>
-    <div>
+    <div class="w-600px">
       <img src="@/assets/img/directive/7.jpeg" alt="">
       <img src="@/assets/img/directive/8.jpeg" alt="">
       <img src="@/assets/img/directive/9.jpeg" alt="">

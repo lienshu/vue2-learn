@@ -1,5 +1,5 @@
 <template>
-  <div class="custom-nav">
+  <div class="custom-nav fixed top-0 left-0">
     <el-menu default-active="2" class="h-screen overflow-auto pb-24" @select="handleSwitchNav" :unique-opened="true"
       background-color="#1a334a" router>
       <el-submenu v-for="(item, index) in menus" :key="item.name" :index="index + ''">
