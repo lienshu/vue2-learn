@@ -15,6 +15,11 @@ const routes = [{
         name: 'sync-emit'
       },
       {
+        path: '/sync-emit',
+        component: () => import('@/views/sync-emit'),
+        name: 'sync-emit'
+      },
+      {
         path: '/ref-v-bind-sync',
         component: () => import('@/views/ref-v-bind-sync'),
         name: 'ref-v-bind-sync'
@@ -164,5 +169,12 @@ const router = new VueRouter({
   routes: routes
 
 })
+
+
+// router.beforeEach((to, from) => {
+//   console.log(to, from)
+//   // 返回false，页面不显示路由导航
+//   // return false
+// })
 
 export default router
