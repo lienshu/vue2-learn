@@ -1,21 +1,32 @@
 <template>
-  <div>
-    <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-      <el-form-item label="密码" prop="pass">
-        <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
-      </el-form-item>
-      <el-form-item label="确认密码" prop="checkPass">
-        <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
-        <el-button @click="resetForm('ruleForm')">重置</el-button>
-      </el-form-item>
-    </el-form>
+  <div class="login h-screen w-screen">
+    <div class="main h-screen w-screen">
+      <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px"
+        class="demo-ruleForm w-500px m-auto relative top-1/3">
+        <div class="text-white">{{ isLogin }}</div>
+        <!-- <div class="text-white">{{ doneTodosLength }}</div> -->
+        <!-- <div class="text-white">{{ todoById }}</div> -->
+        <!-- <div class="text-white">{{ localComputed }}</div> -->
+        <div class="text-white">{{ doneLength }}</div>
+        <div class="text-white">{{ count }}</div>
+        <el-form-item label="账号" prop="user">
+          <el-input type="text" v-model="ruleForm.user" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="确认密码" prop="password">
+          <el-input type="password" v-model="ruleForm.password" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+          <el-button @click="resetForm('ruleForm')">重置</el-button>
+        </el-form-item>
+      </el-form>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapState, mapGetters, mapMutations } from 'vuex';
+
 export default {
   name: 'Vue2LearnIndex',
 
@@ -30,41 +41,73 @@ export default {
         callback();
       }
     };
-    var validatePass2 = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('请再次输入密码'));
-      } else if (value !== this.ruleForm.pass) {
-        callback(new Error('两次输入密码不一致!'));
-      } else {
-        callback();
-      }
-    };
     return {
       ruleForm: {
-        pass: '',
-        checkPass: '',
-        age: ''
+        user: '',
+        password: '',
       },
       rules: {
         pass: [
           { validator: validatePass, trigger: 'blur' }
         ],
-        checkPass: [
-          { validator: validatePass2, trigger: 'blur' }
-        ],
       }
     };
   },
-
-  mounted() {
-
+  // computed:mapState({
+  //   // 箭头函数使代码简洁
+  //   // isLogin:state => state.isLogin
+  //   // 传字符串参数 'isLogin' 等同于 `state => state.isLogin`
+  //   // isLogin:'isLogin'
+  //   // 为了能够使用 `this` 获取局部状态，必须使用常规函数
+  //   isLogin(state){
+  //     return state.isLogin
+  //   }
+  // }),
+  // 当映射的计算属性的名称与 state 的子节点名称相同时，我们也可以给 mapState 传一个字符串数组。
+  // 映射 this.isLogin 为 store.state.isLogin
+  computed: {
+    // 使用对象展开运算符将此对象混入到外部对象中
+    localComputed() {
+      return this.isLogin
+    },
+    ...mapState(['isLogin', 'count']),
+    // doneTodosLength() {
+    //   return this.$store.getters.doneTodosLength
+    // },
+    // todoById() {
+    //   return this.$store.getters.getTodoById(2).id
+    // }
+    // ...mapGetters(['doneTodosLength'])
+    // 将getter属性另改名
+    ...mapGetters({ doneLength: 'doneTodosLength' })
   },
-
+  // computed: mapState(['isLogin']),
+  mounted() {
+    console.log(this.$store.state.isLogin, 'isLogin')
+    console.log(this.$store.getters.doneTodos, 'doneTodos')
+    // 注意，getter 在通过属性访问时是作为 Vue 的响应式系统的一部分缓存其中的。
+    console.log(this.$store.getters.doneTodosLength, 'doneTodosLength')
+    console.log(this.isLogin, 'isLogin')
+  },
   methods: {
+    ...mapMutations(['setUserInfo', 'increment']),
+    // 将 `this.add()` 映射为 `this.$store.commit('increment')`
+    ...mapMutations({ add: 'increment' }),
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert('submit!');
+          // alert('submit!');
+          // this.$store.commit('use/setUserInfo')
+          // this.$store.dispatch('otherIncrement',{amount: 20})
+          this.$store.dispatch({ type: 'otherIncrement', amount: 20 })
+          this.$store.dispatch('actionB').then(() => {
+            console.log('actionB')
+          })
+          // this.$store.commit('increment', 10)
+          // 当荷载dispatch是个对象时
+          // this.$store.commit('increment', { amount: 10 })
+          // 对象的形式调用mutation
+          // this.$store.commit({ type: 'increment', amount: 10 })
         } else {
           console.log('error submit!!');
           return false;
@@ -73,10 +116,24 @@ export default {
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
-    }
+    },
   }
-},
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+::v-deep {
+  .el-form-item__label {
+    color: #fff;
+  }
+}
+
+.login {
+  background: url(@/assets/img/directive/11.jpg) no-repeat center;
+  background-size: 100% 100%;
+
+  .main {
+    background: rgba(0, 0, 0, .49);
+  }
+}
+</style>
