@@ -6,6 +6,11 @@ import Top from '@/views/name-router/top.vue'
 Vue.use(VueRouter)
 
 const routes = [{
+    path: '/login',
+    component: () => import('@/views/login'),
+    name: 'login'
+  },
+  {
     path: '/',
     component: () => import('@/lauout/menu'),
     redirect: '/sync-emit',
@@ -98,7 +103,6 @@ const routes = [{
         name: 'route-push',
       },
     ]
-    // redirect: '/home',
   },
   {
     path: '/other',
