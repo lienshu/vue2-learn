@@ -3,12 +3,12 @@
     <div class="main h-screen w-screen">
       <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px"
         class="demo-ruleForm w-500px m-auto relative top-1/3">
-        <div class="text-white">{{ isLogin }}</div>
-        <!-- <div class="text-white">{{ doneTodosLength }}</div> -->
+        <div class="text-white">isLogin: {{ isLogin }}</div>
+        <div class="text-white">doneTodosLength: {{ doneTodosLength }}</div>
         <!-- <div class="text-white">{{ todoById }}</div> -->
-        <!-- <div class="text-white">{{ localComputed }}</div> -->
-        <div class="text-white">{{ doneLength }}</div>
-        <div class="text-white">{{ count }}</div>
+        <div class="text-white">localComputed: {{ localComputed }}</div>
+        <!-- <div class="text-white">doneLength: {{ doneLength }}</div> -->
+        <div class="text-white">count: {{ count }}</div>
         <el-form-item label="账号" prop="user">
           <el-input type="text" v-model="ruleForm.user" autocomplete="off"></el-input>
         </el-form-item>
@@ -23,6 +23,11 @@
     </div>
   </div>
 </template>
+
+<!-- 
+  如果不是module模式，直接在属性后面写变量名/方法名
+  如：this.$store.state.isLogin
+-->
 
 <script>
 import { mapState, mapGetters, mapMutations } from 'vuex';
@@ -70,39 +75,45 @@ export default {
     localComputed() {
       return this.isLogin
     },
-    ...mapState(['isLogin', 'count']),
+    // ...mapState(['isLogin', 'count']),
+    // ...mapState({ isLogin: state => state.user.isLogin, count: state => state.user.count }),
+    ...mapState('user',{ isLogin: state => state.isLogin, count: state => state.count }),
     // doneTodosLength() {
     //   return this.$store.getters.doneTodosLength
     // },
     // todoById() {
     //   return this.$store.getters.getTodoById(2).id
     // }
-    // ...mapGetters(['doneTodosLength'])
+    // ...mapGetters(['user/doneTodosLength'])
     // 将getter属性另改名
-    ...mapGetters({ doneLength: 'doneTodosLength' })
+    // ...mapGetters({ doneLength: 'doneTodosLength' })
+    // ...mapGetters("模块名",['方法名']),
+    ...mapGetters("user",['doneTodosLength'])
   },
   // computed: mapState(['isLogin']),
   mounted() {
-    console.log(this.$store.state.isLogin, 'isLogin')
-    console.log(this.$store.getters.doneTodos, 'doneTodos')
+    console.log(this.$store.state.user.isLogin, 'isLogin')
+    console.log(this.$store.getters["user/doneTodos"], 'doneTodos')
     // 注意，getter 在通过属性访问时是作为 Vue 的响应式系统的一部分缓存其中的。
-    console.log(this.$store.getters.doneTodosLength, 'doneTodosLength')
-    console.log(this.isLogin, 'isLogin')
+    console.log(this.$store.getters["user/doneTodosLength"], 'doneTodosLength')
+    console.log(this.isLogin, '11111isLogin')
   },
   methods: {
-    ...mapMutations(['setUserInfo', 'increment']),
+    // ...mapMutations(['user/setUserInfo', 'user/increment']),
+    ...mapMutations('user',['setUserInfo', 'increment']),
     // 将 `this.add()` 映射为 `this.$store.commit('increment')`
-    ...mapMutations({ add: 'increment' }),
+    ...mapMutations({ add: 'user/increment' }),
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           // alert('submit!');
-          // this.$store.commit('use/setUserInfo')
+          // this.$store.commit('user/setUserInfo')
           // this.$store.dispatch('otherIncrement',{amount: 20})
-          this.$store.dispatch({ type: 'otherIncrement', amount: 20 })
-          this.$store.dispatch('actionB').then(() => {
+          this.$store.dispatch({ type: 'user/otherIncrement', amount: 20 })
+          this.$store.dispatch('user/actionB').then(() => {
             console.log('actionB')
           })
+          this.$store.commit('user/setUserInfo')
           // this.$store.commit('increment', 10)
           // 当荷载dispatch是个对象时
           // this.$store.commit('increment', { amount: 10 })
