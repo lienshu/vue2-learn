@@ -1,6 +1,6 @@
 <template>
   <div class="w-full header h-60px pr-5 leading-60px">
-    <el-button type="primary" class="w-80px">登录</el-button>
+    <el-button type="primary" class="w-80px" @click="$router.push('login')">退出</el-button>
   </div>
 </template>
 
