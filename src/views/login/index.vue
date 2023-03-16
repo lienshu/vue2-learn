@@ -113,12 +113,13 @@ export default {
           this.$store.dispatch('user/actionB').then(() => {
             console.log('actionB')
           })
-          this.$store.commit('user/setUserInfo')
+          // this.$store.commit('user/setUserInfo')
           // this.$store.commit('increment', 10)
           // 当荷载dispatch是个对象时
           // this.$store.commit('increment', { amount: 10 })
           // 对象的形式调用mutation
           // this.$store.commit({ type: 'increment', amount: 10 })
+          this.$router.push('/')
         } else {
           console.log('error submit!!');
           return false;

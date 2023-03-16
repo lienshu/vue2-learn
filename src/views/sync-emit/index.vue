@@ -2,16 +2,18 @@
   <div>
     <h3>{{ title }}</h3>
     <home-page :data.sync="data" :testData.sync='testData' />
+    <Sync/>
   </div>
 </template>
 
 <script>
+import Sync from './sync/index.vue'
 import HomePage from './components/homePage.vue'
 
 export default {
   name: 'HOME',
   components: {
-    HomePage
+    HomePage,Sync
   },
 
   data() {

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Bottom from '@/views/name-router/bottom.vue'
 import Top from '@/views/name-router/top.vue'
+import store from '../store/index'
 
 Vue.use(VueRouter)
 
@@ -166,7 +167,6 @@ const routes = [{
 
 ]
 
-
 const router = new VueRouter({
   // linkActiveClass: 'active',
   mode: 'history',
@@ -174,9 +174,17 @@ const router = new VueRouter({
 
 })
 
+console.log(store.state.user.isLogin,'osLogin')
 
-// router.beforeEach((to, from) => {
-//   console.log(to, from)
+// router.beforeEach((to, from,next) => {
+//   console.log(to, from,next)
+//   const isLogin = store.state.user.isLogin
+  
+//   if(to.name !== 'login' && !isLogin){ 
+//     store.commit('user/setUserInfo')
+//     next({name:'login',replace:true})
+//   }
+//   else next()
 //   // 返回false，页面不显示路由导航
 //   // return false
 // })
