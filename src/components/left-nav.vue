@@ -107,6 +107,10 @@ export default {
               name: '$on',
               path: '/other/$on'
             },
+            {
+              name: 'echarts',
+              path: '/other/echarts'
+            },
           ]
         }
       ]

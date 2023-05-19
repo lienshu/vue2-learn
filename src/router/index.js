@@ -159,6 +159,11 @@ const routes = [{
         component: () => import('@/views/$on'),
         name: '/$on'
       },
+      {
+        path: '/echarts',
+        component: () => import('@/views/echarts/index.vue'),
+        name: '/echarts'
+      },
     ]
   },
 
