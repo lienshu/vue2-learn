@@ -18,6 +18,7 @@
     </default-slot>
 
     <named-slot>
+      <div>测试stash命令</div>
       <template v-slot:header1>
         <h1>Here might be a page title</h1>
       </template>
