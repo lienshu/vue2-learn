@@ -9,7 +9,8 @@
           如果使用 :变量.sync 的形式，子组件不能直接接收对象里面的变量，只能接收该对象
         - 如果是简单数据，使用 :变量.sync 的形式
     -->
-    <Syn v-bind.sync="user" :age.sync="age" />
+    <!-- <Syn v-bind.sync="user" :age.sync="age" /> -->
+    <Syn v-bind="user" :user="user" v-bind.sync="list"/>
   </div>
 </template>
 
