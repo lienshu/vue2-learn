@@ -23,11 +23,14 @@
       </template>
       <div>eewwew</div>
       <!-- 缩写 -->
-      <template slot="header">
-        <!-- <template #header="{ str }"> -->
-        <h1>Here might be a page title</h1>
-        <!-- {{ str }} -->
-      </template>
+      <div>
+        11111
+        <template slot="header">
+          <!-- <template #header="{ str }"> -->
+          <h1>Here might be a page title</h1>
+          <!-- {{ str }} -->
+        </template>
+      </div>
       <!-- <p>A paragraph for the main content.</p>
       <p>And another one.</p> -->
       <template is="otherSlotProps">
