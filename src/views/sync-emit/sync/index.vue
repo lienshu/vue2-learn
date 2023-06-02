@@ -10,8 +10,7 @@
         - 如果是简单数据，使用 :变量.sync 的形式
     -->
     <!-- <Syn v-bind.sync="user" :age.sync="age" /> -->
-    <Syn v-bind="user" :user="user" v-bind.sync="age"/>
-    <div>22222</div>
+    <Syn v-bind="user" :user="user" v-bind.sync="list"/>
   </div>
 </template>
 
