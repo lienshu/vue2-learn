@@ -264,6 +264,7 @@ export default {
     },
     setBarLineChart () {
       const barLineChart = this.$refs.barlineChart
+      console.log('测试master')
       if(barLineChart) {
         const thisBarLineChart = this.$echarts.init(barLineChart)
         const option = {
